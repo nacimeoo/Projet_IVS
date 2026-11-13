@@ -1,0 +1,21 @@
+body { font-family: system-ui, sans-serif; margin: 0; color: #1d2733; background: #f6f8fa; }
+header { background: #1f4e79; color: #fff; padding: 1rem 2rem; }
+header h1 { margin: 0 0 .3rem; font-size: 1.6rem; }
+header a { color: #dce9f5; }
+main { max-width: 760px; margin: 1.5rem auto; padding: 0 1rem; }
+section { background: #fff; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 1rem; }
+#assistant { max-width: 760px; margin: 0 auto 2rem; background: #fff; border: 2px solid #1f4e79;
+             border-radius: 8px; padding: 1rem 1.5rem; box-sizing: border-box; }
+#assistant h2 { margin-top: 0; font-size: 1.15rem; }
+#messages { max-height: 340px; overflow-y: auto; display: flex; flex-direction: column; gap: .5rem; margin-bottom: .8rem; }
+.msg { padding: .6rem .8rem; border-radius: 8px; white-space: pre-wrap; max-width: 85%; }
+.msg.user { align-self: flex-end; background: #1f4e79; color: #fff; }
+.msg.bot { align-self: flex-start; background: #eef3f8; }
+.msg.pending { font-style: italic; opacity: .7; }
+.msg.error { background: #fdecea; }
+.msg small { display: block; margin-top: .4rem; color: #52606d; }
+form { display: flex; gap: .5rem; }
+input { flex: 1; padding: .6rem; border: 1px solid #b8c4ce; border-radius: 6px; font-size: 1rem; }
+button { padding: .6rem 1rem; background: #1f4e79; color: #fff; border: 0; border-radius: 6px; cursor: pointer; }
+button:disabled { opacity: .5; }
+.mention { font-size: .8rem; color: #52606d; }

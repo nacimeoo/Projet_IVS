@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mairie de Bourg-sur-Lys</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Mairie de Bourg-sur-Lys</h1>
+    <nav><a href="#actus">Actualités</a> · <a href="#demarches">Démarches</a> · <a href="#contact">Contact</a></nav>
+  </header>
+
+  <main>
+    <section id="actus">
+      <h2>Actualités</h2>
+      <article>
+        <h3>Nouveaux horaires de la déchetterie</h3>
+        <p>La déchetterie passe à l'horaire d'hiver. Posez votre question à l'assistant ci-dessous.</p>
+      </article>
+      <article>
+        <h3>Inscriptions à la restauration scolaire</h3>
+        <p>Les inscriptions pour la rentrée sont ouvertes en mairie et en ligne.</p>
+      </article>
+    </section>
+
+    <section id="demarches">
+      <h2>Démarches</h2>
+      <ul>
+        <li>État civil, cartes d'identité et passeports</li>
+        <li>Inscriptions scolaires et périscolaires</li>
+        <li>Urbanisme</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>1 place de la Mairie, 99999 Bourg-sur-Lys · 01 23 45 67 89</p>
+    </section>
+  </main>
+
+  <!-- Assistant conversationnel -->
+  <aside id="assistant" aria-label="Assistant de la mairie">
+    <h2>Une question ? Demandez à l'assistant</h2>
+    <div id="messages" aria-live="polite"></div>
+    <form id="chat-form">
+      <input id="question" type="text" maxlength="500" required
+             placeholder="Ex. : quels sont les horaires de la déchetterie ?">
+      <button type="submit">Envoyer</button>
+    </form>
+    <p class="mention">Réponses générées automatiquement à partir des documents officiels de la mairie.</p>
+  </aside>
+
+  <script src="chat.js"></script>
+</body>
+</html>
