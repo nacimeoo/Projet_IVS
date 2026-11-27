@@ -54,11 +54,29 @@ services:
     networks:
       - net_web
 
+  proxy:
+    image: nginx:alpine
+    restart: unless-stopped
+    depends_on:
+      - web
+      - nextcloud
+    ports:
+      - "80:80"  
+      - "443:443"          
+    volumes:
+      - ./proxy/conf.d:/etc/nginx/conf.d
+      - ./proxy/certs:/etc/nginx/certs
+    networks:
+      - net_edge                   
+      - net_web                      
+      - net_cloud  
+
   networks:
+    net_edge: {}
     net_ncdb:
       internal: true
     net_cloud:
-      internal: true
+      internal: true 
     net_web:
       internal: true
 
