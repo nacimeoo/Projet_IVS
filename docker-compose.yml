@@ -71,14 +71,14 @@ services:
       - net_web                      
       - net_cloud  
 
-  networks:
-    net_edge: {}
-    net_ncdb:
-      internal: true
-    net_cloud:
-      internal: true 
-    net_web:
-      internal: true
+networks:
+  net_edge: {}
+  net_ncdb:
+    internal: true
+  net_cloud:
+    internal: true 
+  net_web:
+    internal: true
 
 volumes:
   pg_data:
