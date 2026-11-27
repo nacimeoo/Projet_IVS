@@ -46,10 +46,20 @@ services:
       - net_ncdb                          
       - net_cloud   
 
+  web:
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ./web:/usr/share/nginx/html
+    networks:
+      - net_web  
+
   networks:
     net_ncdb:
       internal: true                       
     net_cloud:
+      internal: true
+    net_web:
       internal: true
 
 volumes:
