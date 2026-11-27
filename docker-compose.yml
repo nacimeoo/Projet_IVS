@@ -1,24 +1,24 @@
 services:
 
   db:
-      image: postgres:17-alpine
-      restart: unless-stopped
-      environment:
-        POSTGRES_DB: ${POSTGRES_DB}
-        POSTGRES_USER: ${POSTGRES_USER}
-        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      volumes:
-        - pg_data:/var/lib/postgresql/data 
-      networks:
-        - net_ncdb
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - net_ncdb
 
   redis:
     image: redis:8-alpine
     restart: unless-stopped
-    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}"]
+    command: [ "redis-server", "--requirepass", "${REDIS_PASSWORD}" ]
     networks:
       - net_ncdb
-  
+
   nextcloud:
     image: nextcloud:35-apache
     restart: unless-stopped
@@ -37,14 +37,14 @@ services:
       REDIS_HOST: redis
       REDIS_HOST_PASSWORD: ${REDIS_PASSWORD}
 
-      NEXTCLOUD_TRUSTED_DOMAINS: ${CLOUD_HOST} 
-      TRUSTED_PROXIES: 172.16.0.0/12                                            
-      OVERWRITEPROTOCOL: https                                                  
+      NEXTCLOUD_TRUSTED_DOMAINS: ${CLOUD_HOST}
+      TRUSTED_PROXIES: 172.16.0.0/12
+      OVERWRITEPROTOCOL: https
     volumes:
-      - nc_data:/var/www/html               
+      - nc_data:/var/www/html
     networks:
-      - net_ncdb                          
-      - net_cloud   
+      - net_ncdb
+      - net_cloud
 
   web:
     image: nginx:alpine
@@ -52,11 +52,11 @@ services:
     volumes:
       - ./web:/usr/share/nginx/html
     networks:
-      - net_web  
+      - net_web
 
   networks:
     net_ncdb:
-      internal: true                       
+      internal: true
     net_cloud:
       internal: true
     net_web:
